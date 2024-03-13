@@ -27,6 +27,7 @@
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^10.0.1",
     "mini-css-extract-plugin": "^2.4.4",
+    "nunjucks-webpack-plugin": "^5.0.0",
     "postcss": "^8.3.11",
     "postcss-loader": "^8.1.0",
     "sass": "^1.50.1",
@@ -64,6 +65,5 @@
     "lint:js": "eslint --ext .js src/js/",
     "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
   },
-  "target": "web",
-  "dependencies": {}
+  "target": "web"
 }
