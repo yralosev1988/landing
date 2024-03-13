@@ -1,0 +1,21 @@
+/* Prevent horizontal scroll */
+
+body {
+  overflow-x: hidden !important;
+}
+
+.heading_span-1 {
+  -webkit-box-decoration-break: clone;
+}
+
+/* Force loader display */
+.loader {
+  display: flex;
+}
+
+/* Hide distribuition section for smaller vertical screens */
+@media (max-height: 650px) and (orientation: landscape) {
+  .section_home-share, .hide-smaller-screens {
+    display: none;
+  }
+}
