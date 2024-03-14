@@ -8,7 +8,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const environment = require('./configuration/environment');
 
 const templateFiles = fs
@@ -24,15 +24,16 @@ const htmlPluginEntries = templateFiles.map(
     new HTMLWebpackPlugin({
       inject: true,
       hash: false,
+      chunks: [template.output.replace('.html', '')],
       filename: template.output,
       template: path.resolve(environment.paths.source, template.input),
-      favicon: path.resolve(environment.paths.source, 'images', 'favicon.svg'),
     })
 );
 
 module.exports = {
   entry: {
     app: path.resolve(environment.paths.source, 'js', 'app.js'),
+    about: path.resolve(environment.paths.source, 'js', 'about.js'),
   },
   output: {
     filename: 'js/[name].js',
@@ -107,6 +108,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new FaviconsWebpackPlugin({ logo: environment.paths.favicon }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),

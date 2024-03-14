@@ -7,7 +7,9 @@ module.exports = {
 
     /* Path to built files directory */
     output: path.resolve(__dirname, '../dist/'),
+    favicon: path.resolve(__dirname, '../src/images/favicon.svg')
   },
+
   server: {
     host: 'localhost',
     port: 8000,
