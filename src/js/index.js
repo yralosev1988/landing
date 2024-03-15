@@ -1,3 +1,5 @@
 import '../scss/app.scss';
-import './gsap.js';
 
+import './gsap/hero.js';
+import './gsap/navbar.js';
+import './gsap/preloader.js';
