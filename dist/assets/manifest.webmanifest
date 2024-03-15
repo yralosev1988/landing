@@ -1,4 +1,6 @@
 {
+  "name": "landing",
+  "short_name": "landing",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
