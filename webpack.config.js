@@ -32,7 +32,7 @@ const htmlPluginEntries = templateFiles.map(
 
 module.exports = {
   entry: {
-    app: path.resolve(environment.paths.source, 'js', 'app.js'),
+    index: path.resolve(environment.paths.source, 'js', 'index.js'),
     about: path.resolve(environment.paths.source, 'js', 'about.js'),
   },
   output: {
