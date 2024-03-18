@@ -4,22 +4,22 @@
 const path = require('path');
 const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+/*const HTMLWebpackPlugin = require('html-webpack-plugin');*/
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const environment = require('./configuration/environment');
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 
-const templateFiles = fs
+/*const templateFiles = fs
   .readdirSync(environment.paths.source)
   .filter((file) => ['.html', '.ejs'].includes(path.extname(file).toLowerCase()))
   .map((filename) => ({
     input: filename,
     output: filename.replace(/\.ejs$/, '.html'),
-  }));
+  }));*/
 
-const htmlPluginEntries = templateFiles.map(
+/*const htmlPluginEntries = templateFiles.map(
   (template) =>
     new HTMLWebpackPlugin({
       inject: true,
@@ -28,22 +28,22 @@ const htmlPluginEntries = templateFiles.map(
       filename: template.output,
       template: path.resolve(environment.paths.source, template.input),
     })
-);
+);*/
 
 module.exports = {
-  entry: {
+  /*entry: {
     index: path.resolve(environment.paths.source, 'js', 'index.js'),
     about: path.resolve(environment.paths.source, 'js', 'about.js'),
-  },
+  },*/
   output: {
-    filename: 'js/[name].js',
+    clean: true,
     path: environment.paths.output,
   },
   module: {
     rules: [
       {
         test: /\.((c|sa|sc)ss)$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: ['css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.js$/,
@@ -109,9 +109,6 @@ module.exports = {
   },
   plugins: [
     new FaviconsWebpackPlugin({ logo: environment.paths.favicon }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-    }),
     new CleanWebpackPlugin({
       verbose: true,
       cleanOnceBeforeBuildPatterns: ['**/*', '!stats.json'],
@@ -136,6 +133,30 @@ module.exports = {
         },
       ],
     }),
-  ].concat(htmlPluginEntries),
+    new HtmlBundlerPlugin({
+      entry: {
+        index: { // => dist/index.html
+          import: 'src/pages/index.html', // template file
+          data: { title: 'Home' }, // pass variables into template
+        },
+        about: { // => dist/about.html
+          import: 'src/pages/about.html',
+          data: { title: 'About' },
+        },
+      },
+      js: {
+        // JS output filename, used if `inline` option is false (defaults)
+        filename: 'js/[name].[contenthash:8].js',
+        //inline: true, // inlines JS into HTML
+      },
+      css: {
+        // CSS output filename, used if `inline` option is false (defaults)
+        filename: 'css/[name].[contenthash:8].css',
+        //inline: true, // inlines CSS into HTML
+      },
+      preprocessor: 'nunjucks', // use Nunjucks templating engine
+      // preprocessorOptions: {...},
+    }),
+  ].concat(),
   target: 'web',
 };
