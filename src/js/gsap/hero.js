@@ -22,39 +22,71 @@ window.addEventListener("load", () => {
   const title = document.querySelector('.home-header_phone-wrap')
   const app = document.querySelector('.home-header_app')
 
-  let tl = gsap.timeline({
+  /*let tl = gsap.timeline({
     scrollTrigger: {
       trigger: section,
-      start: "top top",
-      /* .home-header_scroll-spacing {
+      start: "center center",
+      end: '+=2720',
+      /!* .home-header_scroll-spacing {
        height: 170 rem; (2720px)
-      }*/
-      end: "bottom+=2720 bottom",
+      }*!/
       scrub: 1
     }
   })
   tl.to(
     title,
     {y: 0}
-  ).to(title, {scaleX: 6, scaleY: 6})
+  ).to(title, {scaleX: 6, scaleY: 6})*/
 
-  const showAnim3 = gsap.to('.home-header_app', {
+  const deviceUp = gsap.to('.home-header_phone-wrap', {
+    y: 0
+  });
+
+  ScrollTrigger.create({
+    trigger: '.home-header_app',
+    animation: deviceUp,
+    end: 'center+=50% center',
+    scrub: true
+  });
+
+  const deviceScale = gsap.to('.home-header_phone-wrap', {
+    scaleX: 6, scaleY: 6
+  });
+
+  ScrollTrigger.create({
+    immediateRender: false,
+    trigger: '.home-header_app',
+    start: 'center center',
+    end: 'center+=2720 center',
+    animation: deviceScale,
+    markers: true,
+    scrub: true
+  });
+
+  const fadeOutApp = gsap.to('.home-header_app', {
     opacity: 0
   });
 
   ScrollTrigger.create({
-    trigger: app,
-    start: "top+=1054 top",
-    /* .home-header_scroll-spacing {
-     height: 170 rem; (2720px)
-    }*/
-
-    end: "bottom+=1800 bottom",
-    animation: showAnim3,
-    scrub: 0.5
+    immediateRender: false,
+    trigger: '.home-header_app',
+    start: "center center",
+    end: 'center+=100% center',
+    animation: fadeOutApp,
+    scrub: true
   });
-  const showAnim4 = gsap.to('.home-header_content', {
+
+  const fadeOutContent = gsap.to('.home-header_content', {
     opacity: 0
+  });
+
+  ScrollTrigger.create({
+    immediateRender: false,
+    trigger: app,
+    start: "center center",
+    end: 'center+=50% center',
+    animation: fadeOutContent,
+    scrub: true
   });
 
   const scrollLineAnim = gsap.timeline({ repeat: -1});
@@ -66,29 +98,90 @@ window.addEventListener("load", () => {
     .to(".home-header_frame", { filter: "blur(3px)", delay: 3, duration: 1.5})
 
 
-  ScrollTrigger.create({
-    trigger: app,
-    start: "center+=560 top",
-    /* .home-header_scroll-spacing {
-     height: 170 rem; (2720px)
-    }*/
+  console.clear();
+  /* The encoding is super important here to enable frame-by-frame scrubbing. */
 
-    end: "bottom+=1500 bottom",
-    animation: showAnim4,
-    scrub: 0.5
+// ffmpeg -i ~/Downloads/Toshiba\ video/original.mov -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
+// ffmpeg -i ~/Downloads/Toshiba\ video/original.mov -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output_960.mp4
+
+  const video = document.querySelector("video");
+  let src = video.currentSrc || video.src;
+  console.log(video, src);
+
+  /* Make sure the video is 'activated' on iOS */
+  function once(el, event, fn, opts) {
+    let onceFn = function (e) {
+      el.removeEventListener(event, onceFn);
+      fn.apply(this, arguments);
+    };
+    el.addEventListener(event, onceFn, opts);
+    return onceFn;
+  }
+
+  once(document.documentElement, "touchstart", function (e) {
+    video.play();
+    video.pause();
   });
 
-  ScrollTrigger.create({
-    trigger: app,
-    start: "center+=560 top",
-    /* .home-header_scroll-spacing {
-     height: 170 rem; (2720px)
-    }*/
+  /* ---------------------------------- */
+  /* Scroll Control! */
 
-    end: "bottom+=1500 bottom",
-    animation: showAnim4,
-    scrub: 0.5
+  let tlVideo = gsap.timeline({
+    defaults: { duration: 3 },
+    scrollTrigger: {
+      immediateRender: false,
+      trigger: ".home-header_app",
+      start: "center center",
+      end: "center+=2720 center",
+      scrub: true
+    }
   });
+
+  console.log('downloaded')
+  tlVideo.fromTo(
+    video,
+    {
+      currentTime: 0
+    },
+    {
+      currentTime: video.duration || 1
+    }
+  );
+
+  /* When first coded, the Blobbing was important to ensure the browser wasn't dropping previously played segments, but it doesn't seem to be a problem now. Possibly based on memory availability? */
+  /*setTimeout(function () {
+    if (window["fetch"]) {
+      fetch(src)
+        .then((response) => response.blob())
+        .then((response) => {
+          let blobURL = URL.createObjectURL(response);
+
+          let t = video.currentTime;
+          once(document.documentElement, "touchstart", function (e) {
+            video.play();
+            video.pause();
+          });
+
+          video.setAttribute("src", blobURL);
+          video.currentTime = t + 0.01;
+        });
+    }
+  }, 1000);*/
+
+  /* ---------------------------------- */
+  /*const videoAnim = gsap.to('.home-header_video video');
+
+  ScrollTrigger.create({
+    trigger: '#scrollable-section-1',
+    start: "top top",
+    /!* .home-header_scroll-spacing {
+     height: 170 rem; (2720px)
+    }*!/
+
+    end: "bottom bottom",
+    animation: videoAnim,
+    scrub: true
+  });*/
 })
 
 
