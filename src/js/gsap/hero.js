@@ -72,7 +72,7 @@ window.addEventListener("load", () => {
     /* .home-header_scroll-spacing {
      height: 170 rem; (2720px)
     }*/
-    markers: true,
+
     end: "bottom+=1500 bottom",
     animation: showAnim4,
     scrub: 0.5
@@ -84,7 +84,7 @@ window.addEventListener("load", () => {
     /* .home-header_scroll-spacing {
      height: 170 rem; (2720px)
     }*/
-    markers: true,
+
     end: "bottom+=1500 bottom",
     animation: showAnim4,
     scrub: 0.5
