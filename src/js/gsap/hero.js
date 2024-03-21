@@ -18,6 +18,63 @@ window.addEventListener("load", () => {
 
   gsap.ticker.lagSmoothing(0)
 
+  let mm = gsap.matchMedia();
+
+  mm.add("(min-width: 991px)", () => {
+    const deviceUp = gsap.fromTo('.home-header_phone-wrap', {
+      y: 368
+    },{
+      y: 0
+    });
+
+    ScrollTrigger.create({
+      trigger: '.home-header_app',
+      animation: deviceUp,
+      end: 'center+=50% center',
+      scrub: true
+    });
+
+    const deviceScale = gsap.to('.home-header_phone-wrap', {
+      scaleX: 6, scaleY: 6
+    });
+
+    ScrollTrigger.create({
+      immediateRender: false,
+      trigger: '.home-header_app',
+      start: 'center center',
+      end: 'center+=2720 center',
+      animation: deviceScale,
+      markers: true,
+      scrub: true
+    });
+
+    /*const fadeOutApp = gsap.to('.home-header_app', {
+      opacity: 0
+    });
+
+    ScrollTrigger.create({
+      immediateRender: false,
+      trigger: '.home-header_app',
+      start: "center center",
+      end: 'center+=100% center',
+      animation: fadeOutApp,
+      scrub: true
+    });*/
+
+    const fadeOutContent = gsap.to('.home-header_content', {
+      opacity: 0
+    });
+
+    ScrollTrigger.create({
+      immediateRender: false,
+      trigger: app,
+      start: "center center",
+      end: 'center+=50% center',
+      animation: fadeOutContent,
+      scrub: true
+    });
+  });
+
   const section = document.querySelector('#scrollable-section-1')
   const title = document.querySelector('.home-header_phone-wrap')
   const app = document.querySelector('.home-header_app')
@@ -38,56 +95,9 @@ window.addEventListener("load", () => {
     {y: 0}
   ).to(title, {scaleX: 6, scaleY: 6})*/
 
-  const deviceUp = gsap.to('.home-header_phone-wrap', {
-    y: 0
-  });
 
-  ScrollTrigger.create({
-    trigger: '.home-header_app',
-    animation: deviceUp,
-    end: 'center+=50% center',
-    scrub: true
-  });
 
-  const deviceScale = gsap.to('.home-header_phone-wrap', {
-    scaleX: 6, scaleY: 6
-  });
 
-  ScrollTrigger.create({
-    immediateRender: false,
-    trigger: '.home-header_app',
-    start: 'center center',
-    end: 'center+=2720 center',
-    animation: deviceScale,
-    markers: true,
-    scrub: true
-  });
-
-  const fadeOutApp = gsap.to('.home-header_app', {
-    opacity: 0
-  });
-
-  ScrollTrigger.create({
-    immediateRender: false,
-    trigger: '.home-header_app',
-    start: "center center",
-    end: 'center+=100% center',
-    animation: fadeOutApp,
-    scrub: true
-  });
-
-  const fadeOutContent = gsap.to('.home-header_content', {
-    opacity: 0
-  });
-
-  ScrollTrigger.create({
-    immediateRender: false,
-    trigger: app,
-    start: "center center",
-    end: 'center+=50% center',
-    animation: fadeOutContent,
-    scrub: true
-  });
 
   const scrollLineAnim = gsap.timeline({ repeat: -1});
   scrollLineAnim.from('.home-header_scroll-line', { duration: 1, repeat: 1, translateY: `${-4}rem`, opacity: 0, yoyo: true })
@@ -127,7 +137,7 @@ window.addEventListener("load", () => {
   /* Scroll Control! */
 
   let tlVideo = gsap.timeline({
-    defaults: { duration: 3 },
+    defaults: { duration: 4 },
     scrollTrigger: {
       immediateRender: false,
       trigger: ".home-header_app",

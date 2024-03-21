@@ -3189,7 +3189,7 @@ figcaption {
   color: #fff;
   text-align: center;
   letter-spacing: .1em;
-  background-color: #8c20f8;
+  background: linear-gradient(to top right, #B320F8, #921375);
   border-radius: .5rem;
   justify-content: center;
   align-items: center;
@@ -3994,6 +3994,8 @@ figcaption {
 
 .home-intro_component {
   width: 100%;
+  margin-left: auto;
+  max-width: 30rem;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -4119,7 +4121,7 @@ figcaption {
 
 .home-header_video-wrapper {
   z-index: 4;
-  width: 34.7vh;
+  width: 60vh;
   position: relative;
 }
 
@@ -4442,7 +4444,7 @@ figcaption {
 }
 
 .home-header_spacing-top {
-  padding-top: 13rem;
+  padding-top: 4rem;
 }
 
 .home-sound_head {
@@ -4729,6 +4731,7 @@ figcaption {
 }
 
 .section_home-header {
+  background: top right fixed no-repeat url('../images/design/bg-header.png') #000;
   margin-bottom: -32rem;
   position: relative;
 }
@@ -4853,11 +4856,12 @@ figcaption {
 }
 
 .home-header_app {
+  aspect-ratio: 16 / 9;
   z-index: 2;
-  width: 101%;
+  width: 108%;
   max-width: none;
   position: absolute;
-  top: -7.8vh;
+  top: -1.4vh;
 }
 
 .home-header_bg-wrap {
@@ -4888,12 +4892,12 @@ figcaption {
 }
 
 .home-header_iphone {
+  aspect-ratio: 16 / 9;
   z-index: 3;
-  width: 111.4%;
+  width: 108%;
   max-width: none;
-  transition: opacity .5s;
   position: absolute;
-  top: -9.4vh;
+  top: -1.4vh;
 }
 
 .home-sound_item {
@@ -4993,6 +4997,9 @@ figcaption {
   align-items: center;
   display: flex;
   position: absolute;
+
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .home-edit_ui {
@@ -6565,7 +6572,7 @@ figcaption {
 
 .navbar_bg-dropdown {
   z-index: 1;
-  background-color: var(--dark);
+  background-color: #000;
   opacity: 0;
   position: absolute;
   top: 0%;
@@ -6597,7 +6604,7 @@ figcaption {
 
 .navbar_bg-scroll {
   z-index: 1;
-  background-color: var(--dark);
+  background-color: #000;
   opacity: 0;
   transition: opacity .2s;
   position: absolute;
@@ -7628,6 +7635,10 @@ figcaption {
   bottom: 0%;
   left: 0%;
   right: -62%;
+}
+
+video {
+  border-radius: 0.5rem !important;
 }
 
 .team-header_swiper-video {
@@ -9075,9 +9086,9 @@ figcaption {
   }
 
   .home-header_video-wrapper {
-    width: 90%;
+    width: 100%;
     position: absolute;
-    top: 12%;
+    top: -0.3rem;
   }
 
   .navbar_content {
@@ -9287,8 +9298,9 @@ figcaption {
   }
 
   .home-header_app {
-    width: 91%;
-    top: 2%;
+    position: relative;
+    /*width: 91%;
+    top: 2%;*/
   }
 
   .home-header_bg-wrap {
@@ -9337,8 +9349,11 @@ figcaption {
   .home-header_phone-wrap {
     width: 60%;
     max-width: 28.75rem;
-    margin-bottom: -21.5rem;
+    margin-bottom: 0;
+    padding-bottom: 2rem;
     position: relative;
+
+
   }
 
   .home-share_mobile-video-wrap {
@@ -11300,7 +11315,7 @@ figcaption {
 
   .home-header_phone-wrap {
     width: 80%;
-    margin-bottom: -53%;
+    margin-bottom: 0;
   }
 
   .home-record_avatar-wrap {
