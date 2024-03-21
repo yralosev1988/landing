@@ -34,19 +34,43 @@ window.addEventListener("load", () => {
       scrub: true
     });
 
-    const deviceScale = gsap.to('.home-header_phone-wrap', {
-      scaleX: 6, scaleY: 6
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        immediateRender: false,
+        trigger: '.home-header_app',
+        start: 'center center',
+        end: 'center+=2450 center',
+        scrub: true
+      }
+  })
+
+    tl.to('.home-header_phone-wrap', {
+      scaleX: 3.5, scaleY: 3.5
+    }).to('.home-header_border', {
+      scaleX: 1, scaleY: 1, scaleZ: 1, duration: 0.1
     });
 
-    ScrollTrigger.create({
+    /*ScrollTrigger.create({
       immediateRender: false,
       trigger: '.home-header_app',
       start: 'center center',
       end: 'center+=2720 center',
       animation: deviceScale,
-      markers: true,
       scrub: true
     });
+
+    const videoBorderScale = gsap.to('.home-header_border', {
+      scaleX: 1, scaleY: 1, scaleZ: 1
+    });
+
+    ScrollTrigger.create({
+      immediateRender: false,
+      trigger: '.home-header_app',
+      start: 'bottom center',
+      animation: videoBorderScale,
+      markers: true,
+      scrub: true
+    });*/
 
     /*const fadeOutApp = gsap.to('.home-header_app', {
       opacity: 0
