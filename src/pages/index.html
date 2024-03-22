@@ -7,21 +7,21 @@
   <link rel="stylesheet" href="../scss/pages/index.scss">
 </head>
 <body class="body-dark-theme">
-<div class="page-wrapper bottom-spacing-qr-code">
+<div class="page-wrapper">
   {% include 'src/templates/navbar.html' %}
   {% include 'src/templates/loader.html' %}
   <main class="main-wrapper tablet-overflow-hidden">
     {% include 'src/templates/home-header.html' %}
     {% include 'src/templates/home-intro.html' %}
-    {% include 'src/templates/home-record.html' %}
+    {#{% include 'src/templates/home-record.html' %}#}
   </main>
-  <div class="overflow-hidden">
+  {#<div class="overflow-hidden">
     {% include 'src/templates/home-numbers.html' %}
     {% include 'src/templates/home-discover.html' %}
     {% include 'src/templates/home-footer.html' %}
     {% include 'src/templates/home-ai-new.html' %}
 
-  </div>
+  </div>#}
 </div>
 <script type="text/javascript" src="../js/pages/index.js"></script>
 </body>

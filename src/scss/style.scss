@@ -244,34 +244,10 @@ a,
 }
 
 /*
-inline style from body #2
-*/
-/*Fluid responsive */
- html {
-   font-size: 1rem;
- }
-
-@media screen and (max-width: 1440px) {
-  html {
-    font-size: calc(0.39866369710467703rem + 0.6681514476614699vw);
-  }
-}
-
-@media screen and (max-width: 991px) {
-  html {
-    font-size: 1rem;
-  }
-}
-
-/*
 inline style from body #3
 */
 
-@media only screen and (max-width: 992px) {
-  .navbar_content > .navbar_button-wrap {
-    display: none !important;
-  }
-}
+
 
 /*
 inline style from body #4

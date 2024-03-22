@@ -46,6 +46,8 @@ window.addEventListener("load", () => {
 
     tl.to('.home-header_phone-wrap', {
       scaleX: 3.5, scaleY: 3.5
+    }).to('.home-header_app', {
+      opacity: 0
     }).to('.home-header_border', {
       scaleX: 1, scaleY: 1, scaleZ: 1, duration: 0.1
     });

@@ -1,0 +1,52 @@
+.section_home-intro {
+  z-index: 5;
+  position: relative;
+}
+
+.home-intro {
+  &_component {
+    width: 100%;
+    margin-left: auto;
+    max-width: 30rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+  }
+
+  &_text {
+    width: 100%;
+    max-width: 30.375rem;
+  }
+
+}
+
+@media screen and (max-width: 991px) {
+  .home-intro {
+    &_component {
+      padding-top: 5rem;
+    }
+
+    &_text {
+      width: 65%;
+    }
+  }
+
+
+
+}
+
+@media screen and (max-width: 767px) {
+  .home-intro_component {
+    padding-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .home-intro_text {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+
