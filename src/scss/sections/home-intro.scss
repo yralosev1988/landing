@@ -1,6 +1,7 @@
 .section_home-intro {
   z-index: 5;
   position: relative;
+  padding-bottom: 4rem;
 }
 
 .home-intro {
@@ -37,6 +38,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .section_home-intro {
+    padding-bottom: 0;
+  }
+
   .home-intro_component {
     padding-top: 3rem;
   }

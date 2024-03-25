@@ -16,6 +16,9 @@ body {
   color: #fff;
 }
 
+.display-block {
+  display: block;
+}
 
 .container-medium {
   width: 100%;
@@ -61,7 +64,9 @@ body {
 .padding-medium {
   padding: 2rem;
 }
-
+.padding-section-small {
+  padding-top: 6rem;
+}
 .padding-custom1 {
   padding: 1.5rem;
 }
@@ -130,7 +135,7 @@ h1 {
 }
 
 h1,h2 {
-  font-family: Neue Haas Display Pro,sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   letter-spacing: .02em;
   margin-bottom: 0;
@@ -147,7 +152,7 @@ h3 {
 }
 
 h3,h4 {
-  font-family: Neue Haas Display Pro,sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-weight: 500;
   line-height: 1;
   margin-bottom: 0;
@@ -163,7 +168,7 @@ h5 {
 }
 
 h5,h6 {
-  font-family: Neue Haas Display Pro,sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 0;
@@ -207,7 +212,7 @@ label,strong {
 
 blockquote {
   border-left: 4px solid var(--body);
-  font-family: Neue Haas Display Pro,sans-serif;
+  font-family: "Noto Sans",sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: .05em;
@@ -234,6 +239,32 @@ figcaption {
   display: none
 }
 
+.heading-style-h1 {
+  letter-spacing: .02em;
+  font-size: 6.25rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.heading_span-1 {
+  -webkit-text-fill-color: transparent;
+  background-image: radial-gradient(circle at 100% 100%, #c591fc, #f1e7ff 54%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.heading_span-2 {
+  -webkit-text-fill-color: transparent;
+  background-image: radial-gradient(circle at 100% 100%, #8c21f8 38%, #a958fa 66%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: block;
+}
+
+.padding-huge {
+  padding: 6rem;
+}
+
 @media screen and (max-width: 991px) {
   .padding-global {
     &.custom-share {
@@ -246,12 +277,17 @@ figcaption {
     }
   }
 
+  .padding-huge {
+    padding: 5rem;
+  }
   .padding-top {
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
   }
-
+  .padding-section-small {
+    padding-top: 4rem;
+  }
   .padding-large {
     padding: 2.5rem;
   }
@@ -288,6 +324,10 @@ figcaption {
   h4 {
     font-size: 1.5rem
   }
+
+  .heading-style-h1 {
+    font-size: 4.5rem;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -295,7 +335,9 @@ figcaption {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-
+  .padding-huge {
+    padding: 3rem;
+  }
   .padding-top {
     padding-bottom: 0;
     padding-left: 0;
@@ -337,7 +379,9 @@ figcaption {
       padding-top: 2rem;
     }
   }
-
+  .padding-section-small {
+    padding-top: 3rem;
+  }
   .padding-large {
     padding: 2rem;
   }
@@ -395,6 +439,10 @@ figcaption {
 
   blockquote {
     font-size: 1.25rem
+  }
+
+  .heading-style-h1 {
+    font-size: 2.375rem;
   }
 }
 
