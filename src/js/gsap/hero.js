@@ -137,6 +137,7 @@ window.addEventListener("load", () => {
 // ffmpeg -i ~/Downloads/Toshiba\ video/original.mov -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output_960.mp4
 
     const video = document.querySelector("video");
+    video.currentTime = 3.833333
     let src = video.currentSrc || video.src;
     console.log(video, src);
 
