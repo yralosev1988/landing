@@ -3643,17 +3643,7 @@ figcaption {
   right: 0%;
 }
 
-.home-ai_sticky {
-  height: 100vh;
-  grid-row-gap: 6vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
+
 
 .footer_links-wrap {
   width: 50%;
@@ -4102,20 +4092,7 @@ figcaption {
   position: relative;
 }
 
-.home-ai_progress-line {
-  width: 1px;
-  height: 16px;
-  background-color: #8c20f8;
-}
 
-.home-ai_progress {
-  z-index: 3;
-  height: 3rem;
-  grid-column-gap: 2rem;
-  align-items: flex-end;
-  display: flex;
-  position: relative;
-}
 
 
 .home-numbers_small {
@@ -4247,10 +4224,7 @@ figcaption {
   overflow: hidden;
 }
 
-.home-ai_sticky-wrapper {
-  height: 250rem;
-  position: relative;
-}
+
 
 .home-edits_texts-content {
   flex-direction: column;
@@ -5879,113 +5853,11 @@ figcaption {
   right: -22%;
 }
 
-.home-ai_component {
-  grid-column-gap: 6rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: relative;
-}
 
-.home-ai_mockup {
-  z-index: 2;
-  width: 32vh;
-  max-width: 22rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: relative;
-}
 
-.home-ai_screen {
-  width: 100%;
-  max-width: none;
-  object-fit: contain;
-  transition: opacity .7s cubic-bezier(.215, .61, .355, 1);
-  position: relative;
-}
 
-.home-ai_screen._2 {
-  z-index: 2;
-}
 
-.home-ai_screen._3 {
-  z-index: 3;
-  position: absolute;
-}
 
-.home-ai_screen._4 {
-  z-index: 4;
-  position: absolute;
-}
-
-.home-ai_screen._5 {
-  z-index: 5;
-  position: absolute;
-  right: -1px;
-}
-
-.home-ai_screens {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-}
-
-.home-ai_content {
-  z-index: 2;
-  max-width: 21rem;
-  grid-row-gap: 4.125rem;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  margin-top: auto;
-  margin-left: auto;
-  display: flex;
-  position: relative;
-}
-
-.home-ai_texts {
-  align-items: flex-end;
-  display: flex;
-  position: relative;
-}
-
-.home-ai_text-block {
-  opacity: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: opacity .7s;
-  display: flex;
-  position: absolute;
-}
-
-.home-ai_text-block._1 {
-  opacity: 1;
-  position: relative;
-}
-
-.home-ai_text-heading {
-  width: 100%;
-  max-width: 11.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.home-ai_bg-blur {
-  width: 216%;
-  max-width: 101.125rem;
-  position: absolute;
-}
-
-.home-ai_lottie {
-  z-index: 1;
-  width: 159%;
-  height: 114%;
-  position: absolute;
-  bottom: -7.5%;
-}
 
 .mobile_home-ai-phone-wrap {
   display: none;
@@ -7790,9 +7662,7 @@ video {
     justify-content: center;
   }
 
-  .home-ai_screens {
-    border-radius: 3vh;
-  }
+
 
   .community-events_content {
     justify-content: center;
@@ -8091,12 +7961,7 @@ video {
     display: flex;
   }
 
-  .home-ai_sticky {
-    height: auto;
-    grid-row-gap: 0vh;
-    position: relative;
-    top: auto;
-  }
+
 
 
 
@@ -8212,9 +8077,7 @@ video {
     top: auto;
   }
 
-  .home-ai_progress {
-    display: none;
-  }
+
 
 
 
@@ -8257,12 +8120,7 @@ video {
     top: auto;
   }
 
-  .home-ai_sticky-wrapper {
-    height: auto;
-    margin-top: 5rem;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
+
 
   .home-edits_texts-content {
     z-index: 5;
@@ -8536,44 +8394,13 @@ video {
     margin-top: 0;
   }
 
-  .home-ai_component {
-    width: 100%;
-  }
 
-  .home-ai_mockup {
-    display: none;
-  }
 
-  .home-ai_content {
-    width: 100%;
-    max-width: none;
-    grid-row-gap: 0rem;
-    align-items: center;
-    margin-top: 0;
-    margin-left: 0;
-  }
 
-  .home-ai_texts {
-    grid-row-gap: 3rem;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .home-ai_text-block {
-    opacity: 1;
-    text-align: center;
-    align-items: center;
-    position: relative;
-  }
 
-  .home-ai_text-block._1 {
-    align-items: center;
-  }
 
-  .home-ai_text-heading {
-    max-width: none;
-    margin-top: 2.5rem;
-  }
+
 
 
 
@@ -9223,11 +9050,7 @@ video {
     padding-right: 2rem;
   }
 
-  .home-ai_sticky-wrapper {
-    margin-top: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+
 
   .home-edits_texts-content {
     width: 100%;
