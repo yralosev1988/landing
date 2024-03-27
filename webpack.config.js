@@ -4,22 +4,22 @@
 const path = require('path');
 const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-/*const HTMLWebpackPlugin = require('html-webpack-plugin');*/
+/* const HTMLWebpackPlugin = require('html-webpack-plugin'); */
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const environment = require('./configuration/environment');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
+const environment = require('./configuration/environment');
 
-/*const templateFiles = fs
+/* const templateFiles = fs
   .readdirSync(environment.paths.source)
   .filter((file) => ['.html', '.ejs'].includes(path.extname(file).toLowerCase()))
   .map((filename) => ({
     input: filename,
     output: filename.replace(/\.ejs$/, '.html'),
-  }));*/
+  })); */
 
-/*const htmlPluginEntries = templateFiles.map(
+/* const htmlPluginEntries = templateFiles.map(
   (template) =>
     new HTMLWebpackPlugin({
       inject: true,
@@ -28,13 +28,13 @@ const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
       filename: template.output,
       template: path.resolve(environment.paths.source, template.input),
     })
-);*/
+); */
 
 module.exports = {
-  /*entry: {
+  /* entry: {
     index: path.resolve(environment.paths.source, 'js', 'index.js'),
     about: path.resolve(environment.paths.source, 'js', 'about.js'),
-  },*/
+  }, */
   output: {
     clean: true,
     path: environment.paths.output,
@@ -78,7 +78,6 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      '...',
       new ImageMinimizerPlugin({
         minimizer: {
           implementation: ImageMinimizerPlugin.imageminMinify,
@@ -147,12 +146,12 @@ module.exports = {
       js: {
         // JS output filename, used if `inline` option is false (defaults)
         filename: 'js/[name].[contenthash:8].js',
-        //inline: true, // inlines JS into HTML
+        // inline: true, // inlines JS into HTML
       },
       css: {
         // CSS output filename, used if `inline` option is false (defaults)
         filename: 'css/[name].[contenthash:8].css',
-        //inline: true, // inlines CSS into HTML
+        // inline: true, // inlines CSS into HTML
       },
       preprocessor: 'nunjucks', // use Nunjucks templating engine
       // preprocessorOptions: {...},
