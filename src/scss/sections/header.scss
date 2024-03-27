@@ -1,28 +1,4 @@
 .section_home-header {
-  background-image:
-    url("../images/design/cross.svg"),
-    url("../images/design/cross.svg"),
-    url("../images/design/cross.svg"),
-    url("../images/design/cross.svg"),
-    linear-gradient(to right, rgba(209, 229, 254, 0.1) 1px, transparent 1px),
-    linear-gradient(to left, rgba(209, 229, 254, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(209, 229, 254, 0.1) 1px, transparent 1px);
-  background-position:
-    top 114px right 58px,
-    top 114px left 58px,
-    bottom left 58px,
-    bottom right 58px,
-    top right -62px,
-    top left -62px,
-    bottom -118px left;
-  background-repeat:
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat;
   margin-bottom: -22rem;
   position: relative;
 }
@@ -230,6 +206,34 @@
   }
 
   &_sticky {
+    background-image:
+      url("../images/design/cross.svg"),
+      url("../images/design/cross.svg"),
+      url("../images/design/cross.svg"),
+      url("../images/design/cross.svg"),
+      linear-gradient(to right, rgba(209, 229, 254, 0.1) 1px, transparent 1px),
+      linear-gradient(to left, rgba(209, 229, 254, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(209, 229, 254, 0.1) 1px, transparent 1px),
+      linear-gradient(to top, rgba(209, 229, 254, 0.1) 1px, transparent 1px);
+    background-position:
+      top 48px right 58px,
+      top 48px left 58px,
+      bottom 48px left 58px,
+      bottom 48px right 58px,
+      top right -62px,
+      top left -62px,
+      bottom -52px left,
+      top -52px left;
+    background-repeat:
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat;
+
     width: 100vw;
     height: 100vh;
     flex-direction: column;
