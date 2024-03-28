@@ -8,9 +8,9 @@ body {
   -webkit-box-decoration-break: clone;
 }
 
-/* Force loader display */
+// /* Force loader hide */
 .loader {
-  display: flex;
+  display: none;
 }
 
 /* Hide distribuition section for smaller vertical screens */
@@ -19,8 +19,6 @@ body {
     display: none;
   }
 }
-
-
 
 html.lenis, html.lenis body {
   height: auto !important;
