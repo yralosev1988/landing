@@ -34,7 +34,7 @@
       height: 100%;
       opacity: 1;
       z-index: -1;
-      background: fixed top -350px right calc(50% - 300px) no-repeat url("../images/design/bg-immersive.png"), #000;
+      background: fixed top -350px right calc(50% - 300px) no-repeat url("../images/design/bg-immersive.png"), #0C0614;
     }
   }
 
@@ -78,7 +78,7 @@
       &.active {
         width: 100%;
         height: 100vh;
-        background: #000;
+        background: #0C0614;
         margin: 0;
         color: #fff;
         mix-blend-mode: multiply;
@@ -120,7 +120,7 @@
       opacity: 0.4;
       backdrop-filter: blur(10px) saturate(70%);
       z-index: -1;
-      background: #000;
+      background: #0C0614;
     }
 
     h2 {
@@ -160,7 +160,7 @@
       position: relative;
 
       &:before {
-        background: fixed top -350px right calc(50% - 300px) no-repeat url("../images/design/bg-immersive.png"), #000;
+        background: fixed top -350px right calc(50% - 300px) no-repeat url("../images/design/bg-immersive.png"), #0C0614;
       }
     }
 

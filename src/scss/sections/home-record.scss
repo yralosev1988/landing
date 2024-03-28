@@ -41,7 +41,7 @@
 
 
 .section_home-record {
-  background: center center no-repeat url("../images/design/bg-record.png"), #000;
+  background: top -380px left no-repeat url("../images/design/bg-record.png"), #0C0614;
   padding-top: 12rem;
   padding-bottom: 6rem;
   z-index: 5;
@@ -74,7 +74,8 @@
   }
 
   &_block {
-    background-color: #000;
+    height: 360px;
+    background-color: #B168FB;
     border-radius: 1rem;
     flex-direction: column;
     justify-content: flex-end;
@@ -89,6 +90,7 @@
     transform: translateZ(0); //Fix border radius for safari
 
     &.custom-video {
+      height: 740px;
       align-items: flex-start;
     }
 
@@ -183,7 +185,7 @@
     z-index: 3;
     width: 100%;
     height: 47%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0), #000);
+    background-image: linear-gradient(rgba(0, 0, 0, 0), #0C0614);
     position: absolute;
     top: auto;
     bottom: 0;
