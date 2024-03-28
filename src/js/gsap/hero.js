@@ -47,6 +47,7 @@ window.addEventListener('load', () => {
         },
         {
           currentTime: video.video.duration,
+          ease: 'none',
           onUpdate: () => {
             updateVideo(animationVars.currentTime / video.video.duration);
           },
