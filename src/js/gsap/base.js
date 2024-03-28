@@ -1,23 +1,26 @@
 import { gsap } from 'gsap';
-import Lenis from '@studio-freight/lenis';
+// import Lenis from '@studio-freight/lenis';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
 
 gsap.registerPlugin(CSSRulePlugin);
 gsap.registerPlugin(ScrollTrigger);
 
-const lenis = new Lenis();
-
-// lenis.on('scroll', (e) => {
-//   console.log(e);
+// const lenis = new Lenis({
+//   lerp: 0,
+//   easing: (t) => -(Math.cos(Math.PI * t) - 1) / 2,
 // });
 
-lenis.on('scroll', ScrollTrigger.update);
+// // lenis.on('scroll', (e) => {
+// //   console.log(e);
+// // });
 
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
-});
+// lenis.on('scroll', ScrollTrigger.update);
 
-gsap.ticker.lagSmoothing(0);
+// gsap.ticker.add((time) => {
+//   lenis.raf(time * 1000);
+// });
 
-export default lenis;
+// gsap.ticker.lagSmoothing(0);
+
+// export default lenis;
