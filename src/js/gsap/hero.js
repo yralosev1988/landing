@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import throttle from 'lodash/throttle';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 window.addEventListener('load', () => {
@@ -6,6 +7,9 @@ window.addEventListener('load', () => {
 
   mm.add('(min-width: 991px)', () => {
     const video = document.querySelector('video');
+    video.autobuffer = true;
+    video.load();
+
     // video.currentTime = 3.833333
     // let src = video.currentSrc || video.src;
 
@@ -20,31 +24,35 @@ window.addEventListener('load', () => {
       return onceFn;
     }
 
-    once(document.documentElement, 'touchstart', function (e) {
+    once(document.documentElement, 'touchstart', function () {
       video.play();
       video.pause();
     });
 
-    const videoBox = video.getBoundingClientRect();
+    const videoWrapperEl = document.querySelector('.home-header_phone-wrap');
 
     const tl = gsap.timeline({
       scrollTrigger: {
         immediateRender: false,
         trigger: '.home-header_scroll-spacing',
-        start: 'top center',
-        end: 'bottom center',
+        // markers: true,
+        start: () => `start-=${videoWrapperEl.offsetHeight} center`,
+        end: () => 'bottom center',
         scrub: true,
       },
     });
 
-    const animationVars = {
-      time: 0,
-    };
+    const scaleX = window.innerWidth / videoWrapperEl.offsetWidth;
+    const scaleY = window.innerHeight / videoWrapperEl.offsetHeight;
 
-    tl.to('.home-header_phone-wrap', {
-      y: window.innerHeight / 2 - (videoBox.top + videoBox.height / 2),
-    })
-      .addLabel('video-centered')
+    const animationVars = {
+      currentTime: 0,
+    };
+    const updateVideo = throttle((time) => {
+      video.currentTime = time;
+    }, 100 / 6);
+
+    tl.addLabel('video-centered')
       .fromTo(
         animationVars,
         {
@@ -53,7 +61,7 @@ window.addEventListener('load', () => {
         {
           currentTime: video.duration || 1,
           onUpdate: () => {
-            video.currentTime = animationVars.time;
+            updateVideo(animationVars.currentTime);
           },
         },
         'video-centered',
@@ -61,25 +69,34 @@ window.addEventListener('load', () => {
       .fromTo(
         '.home-header_phone-wrap',
         {
-          scale: 0.25,
+          scale: 1,
         },
         {
-          scale: 1,
+          scale: scaleX > scaleY ? scaleX : scaleY,
         },
         'video-centered',
       )
-      .to('.home-header_app', {
-        opacity: 0,
-      })
-      .to('.home-header_border', {
-        scaleX: 1,
-        scaleY: 1,
-        scaleZ: 1,
-        duration: 0.1,
-      });
+      .addLabel('video-end')
+      .to(
+        '.home-header_app',
+        {
+          opacity: 0,
+          duration: 0.1,
+        },
+        'video-end',
+      )
+      .to(
+        '.home-header_border',
+        {
+          scaleX: 1,
+          scaleY: 1,
+          scaleZ: 1,
+          duration: 0.1,
+        },
+        'video-end',
+      );
 
     // const section = document.querySelector('#scrollable-section-1');
-    // const title = document.querySelector('.home-header_phone-wrap');
     const app = document.querySelector('.home-header_app');
 
     const fadeOutContent = gsap.to('.home-header_content', {
@@ -95,17 +112,17 @@ window.addEventListener('load', () => {
       scrub: true,
     });
 
-    const scrollLineAnim = gsap.timeline({ repeat: -1 });
-    scrollLineAnim
-      .from('.home-header_scroll-line', {
-        duration: 1, repeat: 1, translateY: `${-4}rem`, opacity: 0, yoyo: true,
-      })
-      .to('.home-header_scroll-line', { duration: 2, translateY: `${10}rem`, opacity: 1 }, '<');
+    // const scrollLineAnim = gsap.timeline({ repeat: -1 });
+    // scrollLineAnim
+    //   .from('.home-header_scroll-line', {
+    //     duration: 1, repeat: 1, translateY: `${-4}rem`, opacity: 0, yoyo: true,
+    //   })
+    //   .to('.home-header_scroll-line', { duration: 2, translateY: `${10}rem`, opacity: 1 }, '<');
 
-    const blurAnim = gsap.timeline({ repeat: -1 });
-    blurAnim
-      .from('.home-header_frame', { filter: 'blur(0px)' })
-      .to('.home-header_frame', { filter: 'blur(3px)', delay: 3, duration: 1.5 });
+    // const blurAnim = gsap.timeline({ repeat: -1 });
+    // blurAnim
+    //   .from('.home-header_frame', { filter: 'blur(0px)' })
+    //   .to('.home-header_frame', { filter: 'blur(3px)', delay: 3, duration: 1.5 });
 
     /* The encoding is super important here to enable frame-by-frame scrubbing. */
 

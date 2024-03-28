@@ -8,6 +8,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.0",
+    "@types/lodash": "^4.17.0",
     "autoprefixer": "^10.4.0",
     "babel-loader": "^9.1.0",
     "clean-webpack-plugin": "^4.0.0",
@@ -62,6 +63,7 @@
   "target": "web",
   "dependencies": {
     "@studio-freight/lenis": "^1.0.40",
-    "gsap": "^3.12.5"
+    "gsap": "^3.12.5",
+    "lodash": "^4.17.21"
   }
 }
