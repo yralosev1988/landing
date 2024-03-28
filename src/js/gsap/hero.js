@@ -22,9 +22,8 @@ window.addEventListener('load', () => {
       scrollTrigger: {
         immediateRender: false,
         trigger: '.home-header_scroll-spacing',
-        // markers: true,
         start: () => `start-=${videoWrapperEl.offsetHeight} center`,
-        end: () => 'bottom center',
+        end: () => 'bottom bottom',
         scrub: true,
       },
     });
@@ -63,19 +62,19 @@ window.addEventListener('load', () => {
           scale: 1,
         },
         {
-          scale: scaleX > scaleY ? scaleX : scaleY,
+          scale: (scaleX > scaleY ? scaleX : scaleY) * 1.05,
         },
         'video-centered',
       )
-      .addLabel('video-end')
       .to(
         '.home-header_app',
         {
           opacity: 0,
           duration: 0.1,
         },
-        'video-end',
+        '-=0.1',
       )
+      .addLabel('video-end')
       .to(
         '.home-header_border',
         {
@@ -84,7 +83,7 @@ window.addEventListener('load', () => {
           scaleZ: 1,
           duration: 0.1,
         },
-        'video-end',
+        'video-end-=0.1',
       );
 
     // const section = document.querySelector('#scrollable-section-1');
