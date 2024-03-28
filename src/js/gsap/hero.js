@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
       scrollTrigger: {
         immediateRender: false,
         trigger: '.home-header_scroll-spacing',
-        start: () => `start-=${videoWrapperEl.offsetHeight} center`,
+        start: () => `start-=${videoWrapperEl.offsetHeight + window.innerHeight / 2} center`,
         end: () => 'bottom bottom',
         scrub: true,
       },
@@ -63,24 +63,24 @@ window.addEventListener('load', () => {
         },
         {
           scale: (scaleX > scaleY ? scaleX : scaleY) * 1.05,
+          ease: 'power1.in',
+          duration: 0.4,
         },
         'video-centered',
       )
       .to(
-        '.home-header_app',
+        '.home-header_texts',
         {
           opacity: 0,
-          duration: 0.1,
+          duration: 0.25,
         },
-        '-=0.1',
+        'video-centered+=0.02',
       )
       .addLabel('video-end')
       .to(
         '.home-header_border',
         {
-          scaleX: 1,
-          scaleY: 1,
-          scaleZ: 1,
+          scale: 1,
           duration: 0.1,
         },
         'video-end-=0.1',

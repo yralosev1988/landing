@@ -3,17 +3,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import Lenis from '@studio-freight/lenis';
 
 window.addEventListener('load', () => {
-  const showNavbarAnim = gsap.from('.navbar_wrapper', {
+  const showNavbarAnim = gsap.to('.navbar_wrapper', {
     yPercent: -100,
     paused: true,
-    duration: 0.2,
-  }).progress(1);
+    duration: 0.25,
+  });
 
   ScrollTrigger.create({
+    immediateRender: false,
     start: 'top top',
     end: 'max',
     onUpdate: (self) => {
-      self.direction === -1 ? showNavbarAnim.play() : showNavbarAnim.reverse();
+      window.scrollY > 20 && self.direction === 1 ? showNavbarAnim.play() : showNavbarAnim.reverse();
     },
   });
 });
