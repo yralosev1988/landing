@@ -253,7 +253,6 @@
     display: flex;
     will-change: transform;
     transform-style: preserve-3d;
-    margin-top: 24rem;
     position: sticky;
     top: 50vh;
     transform: translateY(-50%);
@@ -265,16 +264,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
     position: relative;
   }
 
   &_video {
-    width: 400%;
-    height: 400%;
-    position: absolute;
-    z-index: 1;
-    transform: scale(0.25, 0.25);
+    width: 400% !important;
+    height: 400% !important;
+    position: absolute !important;
+    transform: scale(0.25, 0.25) !important;
+    top: unset !important;
 
     video {
       width: 100%;
@@ -285,12 +284,12 @@
   }
 
   &_app {
-    aspect-ratio: 16 / 9;
-    width: 108%;
+    // aspect-ratio: 16 / 9;
+    width: 106%;
     max-width: none;
     position: absolute;
-    top: -4%;
-    left: -4%;
+    top: -3%;
+    left: -3%;
   }
 
   &_bg-blur {

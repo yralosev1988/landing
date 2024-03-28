@@ -1,32 +1,19 @@
 import { gsap } from 'gsap';
 import throttle from 'lodash/throttle';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollyVideo from 'scrolly-video/dist/ScrollyVideo';
 
 window.addEventListener('load', () => {
   const mm = gsap.matchMedia();
 
   mm.add('(min-width: 991px)', () => {
-    const video = document.querySelector('video');
-    video.autobuffer = true;
-    video.load();
+    const videoContainer = document.querySelector('.home-header_video');
 
-    // video.currentTime = 3.833333
-    // let src = video.currentSrc || video.src;
-
-    /* Make sure the video is 'activated' on iOS */
-    function once(el, event, fn, opts) {
-      const onceFn = function () {
-        el.removeEventListener(event, onceFn);
-        // eslint-disable-next-line prefer-rest-params
-        fn.apply(this, arguments);
-      };
-      el.addEventListener(event, onceFn, opts);
-      return onceFn;
-    }
-
-    once(document.documentElement, 'touchstart', function () {
-      video.play();
-      video.pause();
+    // eslint-disable-next-line no-new
+    const video = new ScrollyVideo({
+      scrollyVideoContainer: videoContainer,
+      src: videoContainer.dataset.src,
+      trackScroll: false,
     });
 
     const videoWrapperEl = document.querySelector('.home-header_phone-wrap');
@@ -48,24 +35,28 @@ window.addEventListener('load', () => {
     const animationVars = {
       currentTime: 0,
     };
-    const updateVideo = throttle((time) => {
-      video.currentTime = time;
-    }, 100 / 6);
 
-    tl.addLabel('video-centered')
-      .fromTo(
+    const updateVideo = throttle((time) => {
+      video.setTargetTimePercent(time);
+    }, 100 / 3);
+
+    video.video.addEventListener('loadedmetadata', () => {
+      tl.fromTo(
         animationVars,
         {
           currentTime: 0,
         },
         {
-          currentTime: video.duration || 1,
+          currentTime: video.video.duration,
           onUpdate: () => {
-            updateVideo(animationVars.currentTime);
+            updateVideo(animationVars.currentTime / video.video.duration);
           },
         },
         'video-centered',
-      )
+      );
+    });
+
+    tl.addLabel('video-centered')
       .fromTo(
         '.home-header_phone-wrap',
         {
