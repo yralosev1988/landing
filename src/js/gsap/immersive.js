@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-// import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
+ import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
 
 window.addEventListener('load', () => {
   const mm = gsap.matchMedia();
@@ -15,25 +15,23 @@ window.addEventListener('load', () => {
       },
     });
 
-    // const rule = CSSRulePlugin.getRule('.home-immersive_sticky::before');
+     const rule = CSSRulePlugin.getRule('.home-immersive_sticky::before');
 
     tl.to('.section-tag', {
       opacity: 0, height: 0, marginBottom: 0,
     }).to('.section-tag', {
       display: 'block',
       /* display: 'none' */
-    })
-    //   .to(rule, { cssRule: { opacity: 0 } }).to('.home-immersive_video', {
-    //   display: 'block',
-    // }, 'scene1')
+    }).to(rule, { cssRule: { opacity: 0 } }).to('.home-immersive_video', {
+       display: 'block',
+     }, 'scene1')
       .to('.home-immersive_head .section-title', {
         className: 'section-title active',
       }, 'scene1')
       .to('.section-title', {
         scaleX: 5, scaleY: 5, opacity: 0,
-      });
-    // .to('.immersive-frame', {
-    //   borderWidth: 10,
-    // });
+      }).to('.home-immersive_frame', {
+       borderWidth: 10,
+     });
   });
 });
