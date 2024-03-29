@@ -41,8 +41,6 @@
   text-align: center;
 }
 
-
-
 .section_home-record {
   background: top -380px left no-repeat url("../images/design/bg-record.png"), #0C0614;
   padding-top: 258px;
@@ -59,7 +57,6 @@
     margin-left: auto;
     margin-right: auto;
   }
-
 }
 
 .home-record {
@@ -77,328 +74,118 @@
     align-items: center;
   }
 
-  &_block {
-    width: 340px;
-    height: 340px;
-    padding: 20px;
-    background-color: #B168FB;
-    border-radius: 24px;
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-
-    transform: translateZ(0); //Fix border radius for safari
-
-    &.custom-video {
-      height: 740px;
-      align-items: flex-start;
-    }
-
-    &--weather {
-      padding-top: 40px;
-      background: linear-gradient(210.53deg, rgba(161, 23, 230, 0.25) 7.8%, rgba(140, 32, 248, 0.1) 92.58%);
-      border-radius: 24px;
-    }
-
-    &.grid {
-      grid-area: span 2 / span 1 / span 2 / span 1;
-    }
-  }
-
-  &_weather-selector {
-    display: flex;
-    margin-bottom: 12px;
-  }
-  &_time-selector {
+  &_body {
     width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &_time-current {
-    font-family: 'Mabry Pro', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 24px;
-    color: #FFFFFF;
-    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
-  }
-
-  &_time-track {
-    position: relative;
-    top: 4px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-  }
+    gap: 40px;
 
-  &_avatar-wrap {
-    width: 11.375rem;
-    height: 11.375rem;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4.375rem;
-    margin-bottom: 2.5rem;
-    display: flex;
-    position: relative;
-  }
+    .block {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
 
-  &_avatar {
-    z-index: 2;
-    width: 100%;
-    position: relative;
-  }
+      &_title {
+        padding-left: 20px;
+        margin-top: auto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 110%;
+        letter-spacing: -0.03em;
+        color: #FFFFFF;
+      }
 
-  &_avatar-border {
-    z-index: 0;
-    background-image: linear-gradient(159deg, #1e1628, rgba(30, 22, 40, 0) 85%);
-    border-radius: 50%;
-    position: absolute;
-  }
+      &_control, &_weather {
+        padding: 20px;
+        width: 340px;
+        height: 340px;
+        border-radius: 24px;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        background-color: #B168FB;
 
-  &_avatar-border-gradient {
-    z-index: 1;
-    background-image: linear-gradient(rgba(5, 3, 8, 0) 74%, #050308 91%);
-    position: absolute;
-  }
+      }
 
-  &_avatar-border, &_avatar-border-gradient {
-    width: calc(100% + 5rem);
-    height: calc(100% + 5rem);
-  }
+      &_control {
 
-  &_heading-small {
-    padding-left: 20px;
-    margin-top: auto;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 110%;
-    letter-spacing: -0.03em;
-    color: #FFFFFF;
+      }
+
+      &_weather {
+        padding-top: 44px;
+        padding-bottom: 23px;
+        background: linear-gradient(210.53deg, rgba(161, 23, 230, 0.25) 7.8%, rgba(140, 32, 248, 0.1) 92.58%);
+        border-radius: 24px;
+      }
+
+      &_weather-selector {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 23px;
+      }
 
 
+      &_time-selector {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-    &.custom-camera {
-      text-align: left;
-      -webkit-text-fill-color: inherit;
-      background-image: none;
-      background-clip: border-box;
+      &_time-current {
+        font-family: 'Mabry Pro', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+        color: #FFFFFF;
+        text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+      }
+
+      &_time-track {
+        position: relative;
+        top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .video-container {
+      flex: 1 1 100%;
+      position: relative;
+      /*width: 720px;
+      height: 720px;
+      */overflow: hidden;
+      transform: translateZ(0); //Fix border radius for safari
+    }
+
+    .video-container video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      border-radius: 24px !important;
     }
   }
 
-  &_video-wrapper {
-    width: 198%;
-    height: 102%;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    display: flex;
-    position: absolute;
-    top: -1%;
-    bottom: auto;
-    left: 0;
-    right: 0;
-  }
-
-  &_video-wrap {
-    width: 100%;
-    padding-top: 62.2%;
-  }
-
-  &_video {
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-  &_video-shadow {
-    z-index: 3;
-    width: 100%;
-    height: 47%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0), #0C0614);
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-  &_phone-wrap {
-    width: 107%;
-    max-width: 29.6875rem;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    display: flex;
-    position: relative;
-  }
-
-  &_phone {
-    width: 100%;
-    position: relative;
-  }
-
-  &_phone-blur {
-    z-index: 3;
-    width: 67.875rem;
-    max-width: 999%;
-    position: absolute;
-    top: -11.3rem;
-  }
-
-  &_bg-blur {
-    width: 90rem;
-    max-width: none;
-    position: absolute;
-    top: -1%;
-  }
-
-  &_grid {
-    z-index: 2;
-    width: 100%;
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-columns: 1fr;
-    display: grid;
-    position: relative;
-  }
 }
 
 
 @media screen and (max-width: 991px) {
-  .section_home-record {
-    padding-top: 10rem;
-    padding-bottom: 4rem;
-  }
 
-  .home-record {
-    &_head {
-      margin-bottom: 5rem;
-    }
-
-    &_head-title {
-      font-size: 4.5rem;
-    }
-
-    &_tag {
-      margin-bottom: 2.5rem;
-    }
-
-    &_bg-blur {
-      width: 70rem;
-    }
-  }
 }
-
-
 @media screen and (max-width: 767px) {
-  .section-title {
-    font-size: 2.375rem;
-  }
-
-  .section-tag {
-    &_label {
-      font-size: 1rem;
-    }
-  }
-
-  .section-description {
-    font-size: 1.25rem;
-  }
-
-  .section_home-record {
-    padding-top: 7rem;
-    padding-bottom: 3rem;
-
-    .container {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-  }
-
-  .home-record {
-
-    &_head {
-      margin-bottom: 3rem;
-    }
-
-    &_tag {
-      margin-bottom: 2rem;
-    }
-
-    &_grid {
-      grid-template-columns: 1fr;
-    }
-
-    &_block {
-      &.custom-video {
-        padding-top: 30%;
-      }
-
-      &.grid {
-        order: 9999;
-      }
-    }
-
-    &_avatar-wrap {
-      width: 8rem;
-      height: 8rem;
-      margin-top: 3.125rem;
-    }
-
-    &_avatar-border, &_avatar-border-gradient {
-      width: calc(100% + 3.5rem);
-      height: calc(100% + 3.5rem);
-    }
-
-    &_video-wrapper {
-      width: 130%;
-    }
-  }
 }
 
 @media screen and (max-width: 479px) {
-  .home-record {
-    &_grid {
-      grid-row-gap: 1rem;
-    }
 
-    &_block {
-      padding-bottom: 1rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-
-      &.custom-video {
-        padding-top: 90%;
-      }
-    }
-
-    &_avatar-wrap {
-      margin-bottom: 1.25rem;
-    }
-
-    &_phone-wrap {
-      margin-top: 2rem;
-    }
-
-    &_phone-blur {
-      width: 54rem;
-      top: -7.5rem;
-    }
-
-    &_bg-blur {
-      opacity: .5;
-    }
-  }
 }
