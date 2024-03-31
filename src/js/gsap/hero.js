@@ -77,14 +77,12 @@ window.addEventListener('load', () => {
         },
         'video-centered+=0.02',
       )
-      .addLabel('video-end')
       .to(
         '.home-header_border',
         {
           scale: 1,
           duration: 0.1,
         },
-        'video-end-=0.1',
       );
 
     // const section = document.querySelector('#scrollable-section-1');
