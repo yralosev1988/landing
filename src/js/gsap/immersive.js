@@ -28,10 +28,10 @@ window.addEventListener('load', () => {
       .to('.home-immersive_head .section-title', {
         className: 'section-title active',
       }, 'scene1')
-      .to('.section-title', {
-        scaleX: 5, scaleY: 5, opacity: 0,
-      }).to('.home-immersive_frame', {
-       borderWidth: 10,
-     });
+      .to('.home-immersive_head .section-title', {
+        scaleX: 150, scaleY: 150, duration: 10, ease: "power2.out"
+      }).to('.home-immersive_head .section-title', {
+        scaleX: 1, opacity: 0, scaleY: 1, duration: 0.1
+      });
   });
 });

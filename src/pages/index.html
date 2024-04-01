@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../scss/pages/index.scss">
 </head>
-<body class="body-dark-theme">
+<body>
 <div class="page-wrapper">
   {% include 'src/templates/navbar.html' %}
   {% include 'src/templates/loader.html' %}
@@ -22,11 +22,10 @@
 
     {% include 'src/templates/home-grid.html' %}
     {% include 'src/templates/home-immersive.html' %}
+    {% include 'src/templates/home-imagery.html' %}
+    {% include 'src/templates/home-statistic.html' %}
+    {% include 'src/templates/home-devices.html' %}
     {% include 'src/templates/home-footer.html' %}
-    {#{% include 'src/templates/home-numbers.html' %}
-    {% include 'src/templates/home-discover.html' %}
-    {% include 'src/templates/home-footer.html' %}
-    {% include 'src/templates/home-ai-new.html' %}#}
   </div>
 </div>
 <script type="text/javascript" src="../js/pages/index.js"></script>

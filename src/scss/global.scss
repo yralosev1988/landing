@@ -7,32 +7,21 @@ body {
   font-family: "Noto Sans Display", sans-serif;
   font-size: 14px;
   line-height: 20px;
-
+  background-color: #0C0614;
+  color: #F5F5F5;
   overflow-x: hidden !important;
 }
 
-.body-dark-theme {
-  background-color: #0C0614;
-  color: #fff;
-}
-
-.display-block {
+/*.display-block {
   display: block;
-}
+}*/
 
-.container-medium {
+.container {
   width: 100%;
-  max-width: 75rem;
+  padding: 0 40px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-
-  &.custom-share {
-    grid-row-gap: 3rem;
-    flex-direction: column;
-    flex: 1;
-    justify-content: space-between;
-    display: flex;
-  }
 }
 
 .padding-global {
@@ -51,7 +40,7 @@ body {
   }
 }
 
-.padding-top {
+/*.padding-top {
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -444,7 +433,7 @@ figcaption {
   .heading-style-h1 {
     font-size: 2.375rem;
   }
-}
+}*/
 
 @media screen and (max-width: 479px) {
   .padding-top {

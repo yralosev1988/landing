@@ -1,0 +1,82 @@
+.section_statistic {
+  background-color: #0C0614;
+  background-image: linear-gradient(to bottom, rgba(209, 229, 254, 0.1) 1px, transparent 1px);
+  background-position: bottom -51px left;
+  background-repeat: no-repeat;
+  z-index: 10;
+  position: relative;
+
+  .container {
+    padding-top: 190px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("../images/design/cross.svg"),
+    url("../images/design/cross.svg"),
+    linear-gradient(to right, rgba(209, 229, 254, 0.1) 1px, transparent 1px),
+    linear-gradient(to left, rgba(209, 229, 254, 0.1) 1px, transparent 1px);
+
+    background-position: top 47px right calc(100% - 36px),
+    top 47px left calc(100% - 36px),
+    top right -40px,
+    top left -40px;
+
+    background-repeat: no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+  }
+}
+
+.statistic {
+  max-width: 1120px;
+  margin:0 auto;
+  padding: 10px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  &_number {
+    font-weight: 800;
+    font-size: 128px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+
+
+    .statistic_item:nth-child(1) & {
+      color: #E5D1FE;
+    }
+
+    .statistic_item:nth-child(2) & {
+      color: #CD9CFF;
+    }
+
+    .statistic_item:nth-child(3) & {
+      color: #B168FB;
+    }
+  }
+
+  &_title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+  }
+}
+
+
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 479px) {
+
+}
